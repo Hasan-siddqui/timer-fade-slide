@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-slide fade-in"><img src="https://images.unsplash.com/photo-1553796661-17b7fa359f49?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1555298472-8c43a95ddb8f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1555993539-1732b0258235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1557496866-e27ec3a7e4ef?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentIndex = 0;
+
+            // Custom animation durations for each slide
+            const durations = [7000, 2000, 8000, 1000, 7000]; // Adjust these values for each slide
+
+            // Initial animation for the first slide
+            slides[currentIndex].firstElementChild.classList.add('zoom-animation');
+
+            function showNextSlide() {
+                const currentSlide = slides[currentIndex];
+                currentSlide.classList.remove('fade-in');
+                currentSlide.classList.add('fade-out');
+
+                currentIndex = (currentIndex + 1) % slides.length;
+                const nextSlide = slides[currentIndex];
+
+                // Apply fade-in class to the next slide
+                nextSlide.classList.remove('fade-out');
+                nextSlide.classList.add('fade-in');
+
+                // Add zoom animation to the next slide
+                nextSlide.firstElementChild.classList.add('zoom-animation');
+
+                // Remove zoom animation from the current slide
+                setTimeout(() => {
+                    currentSlide.firstElementChild.classList.remove('zoom-animation');
+                }, 1000); // Delay to match fade transition
+
+                // Schedule the next slide transition
+                setTimeout(showNextSlide, durations[currentIndex]);
+            }
+
+            // Start the slideshow with the duration of the first slide
+            setTimeout(showNextSlide, durations[currentIndex]);
+        });
+    </script>
+
+</body>
+</html>

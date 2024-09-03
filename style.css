@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh; /* Ensure the carousel takes the full height */
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Initial zoom effect */
+.zoom-animation {
+    animation: fadezoom 5s forwards;
+}
+
+@keyframes fadezoom {
+    0% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade effect */
+.fade-in {
+    opacity: 1;
+    z-index: 1;
+}
+
+.fade-out {
+    opacity: 0;
+    z-index: 0;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 1440px) {
+    .carousel-slide img {
+        height: 80vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-slide img {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 425px) {
+    .carousel-slide img {
+        height: 50vh;
+    }
+}
