@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Responsive Image Carousel with Custom Animations</title>
+    <!-- External CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh; /* Ensure the carousel takes the full height */
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Initial zoom effect */
+        .zoom-animation {
+            animation: fadezoom 5s forwards;
+        }
+
+        @keyframes fadezoom {
+            0% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Fade effect */
+        .fade-in {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .fade-out {
+            opacity: 0;
+            z-index: 0;
+        }
+
+        /* Media Queries for responsiveness */
+        @media only screen and (min-width: 320px) and (max-width: 425px) {
+            .carousel-slide img {
+                height: 60vh;
+            }
+            .elementor-widget-container .carousel {
+                height: 60vh;
+            }
+        }
+
+        .lg-screen {
+            display: none;
+        }
+
+        .sm-screen {
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            .lg-screen {
+                display: block;
+            }
+
+            .sm-screen {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <!-- First Slide -->
+            <div class="carousel-slide fade-in">
+                <!-- Large Screen Image -->
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_01.jpg" alt="Large Image 1">
+                <!-- Small Screen Image -->
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_01.jpg" alt="Small Image 1">
+            </div>
+            
+            <!-- Second Slide -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_02.jpg" alt="Large Image 2">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_02.jpg" alt="Small Image 2">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_03.jpg" alt="Large Image 3">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_03.jpg" alt="Small Image 3">
+            </div>
+            
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_04.jpg" alt="Large Image 4">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_04.jpg" alt="Small Image 4">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_05.jpg" alt="Large Image 5">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_05.jpg" alt="Small Image 5">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_06.jpg" alt="Large Image 6">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_06.jpg" alt="Small Image 6">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_07.jpg" alt="Large Image 7">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_07.jpg" alt="Small Image 7">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_08.jpg" alt="Large Image 8">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_08.jpg" alt="Small Image 8">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_09.jpg" alt="Large Image 9">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_09.jpg" alt="Small Image 9">
+            </div>
+
+            <!-- lg-screen and sm-screen images -->
+            <div class="carousel-slide">
+                <img class="lg-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/IMG_10.jpg" alt="Large Image 10">
+                <img class="sm-screen" src="https://radhanikunj.org/wp-content/uploads/2024/09/sm-IMG_10.jpg" alt="Small Image 10">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentIndex = 0;
+
+            // Custom animation durations for each slide
+            const durations = [5000, 5000, 5000, 8000, 8000, 8000, 8000, 8000, 8000, 8000]; // Adjust these values for each slide
+
+            // Initial animation for the first slide
+            slides[currentIndex].firstElementChild.classList.add('zoom-animation');
+
+            function showNextSlide() {
+                const currentSlide = slides[currentIndex];
+                currentSlide.classList.remove('fade-in');
+                currentSlide.classList.add('fade-out');
+
+                currentIndex = (currentIndex + 1) % slides.length;
+                const nextSlide = slides[currentIndex];
+
+                // Apply fade-in class to the next slide
+                nextSlide.classList.remove('fade-out');
+                nextSlide.classList.add('fade-in');
+
+                // Add zoom animation to the next slide
+                nextSlide.firstElementChild.classList.add('zoom-animation');
+
+                // Remove zoom animation from the current slide
+                setTimeout(() => {
+                    currentSlide.firstElementChild.classList.remove('zoom-animation');
+                }, 1000); // Delay to match fade transition
+
+                // Schedule the next slide transition
+                setTimeout(showNextSlide, durations[currentIndex]);
+            }
+
+            // Start the slideshow with the duration of the first slide
+            setTimeout(showNextSlide, durations[currentIndex]);
+        });
+    </script>
+
+</body>
+
+</html>
